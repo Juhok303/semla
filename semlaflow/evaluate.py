@@ -40,7 +40,7 @@ def load_model(args, vocab):
         hparams["architecture"] = "semla"
 
     if hparams["architecture"] == "semla":
-        print("***adaln:", hparams["adaln"])
+        print("***adaln:", args.adaln)
         dynamics = EquiInvDynamics(
             hparams["d_model"],
             hparams["d_message"],
