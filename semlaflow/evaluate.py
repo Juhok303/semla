@@ -274,7 +274,7 @@ if __name__ == "__main__":
     # Allow overridding for EGNN arch since some models were not saved with a value for n_layers
     parser.add_argument("--n_layers", type=int, default=None)
 
-    parser.add_argument("--adaln", type=bool, default=DEFAULT_ADALN)
+    parser.add_argument("--adaln", type=bool, default=False)
 
     args = parser.parse_args()
     main(args)
