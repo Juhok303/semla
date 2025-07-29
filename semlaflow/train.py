@@ -71,6 +71,7 @@ def build_model(args, dm, vocab):
     n_bond_types = util.get_n_bond_types(args.categorical_strategy)
 
     if args.arch == "semla":
+        args.adaln=False
         dynamics = EquiInvDynamics(
             args.d_model,
             args.d_message,
