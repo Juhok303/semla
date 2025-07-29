@@ -336,7 +336,7 @@ def build_trainer(args):
         check_val_every_n_epoch=val_check_epochs,
         callbacks=[lr_monitor, checkpointing],
         precision="32",
-        devices="1",
+        devices="2",
     )
     return trainer
 
