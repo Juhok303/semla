@@ -338,6 +338,7 @@ def build_trainer(args):
         precision="32",
         devices="1",
         use_distributed_sampler=False,
+        strategy="ddp_find_unused_parameters_true",
     )
     return trainer
 
