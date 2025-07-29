@@ -337,6 +337,7 @@ def build_trainer(args):
         callbacks=[lr_monitor, checkpointing],
         precision="32",
         devices="2",
+        use_distributed_sampler=False,
     )
     return trainer
 
