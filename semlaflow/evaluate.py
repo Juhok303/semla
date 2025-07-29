@@ -51,7 +51,7 @@ def load_model(args, vocab):
             d_edge=hparams["d_edge"],
             self_cond=hparams["self_cond"],
             coord_norm=hparams["coord_norm"],
-            adaln=hparams["adaln"],
+            adaln=args.adaln,
         )
         egnn_gen = SemlaGenerator(
             hparams["d_model"],
