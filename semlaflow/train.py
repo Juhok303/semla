@@ -82,7 +82,7 @@ def build_model(args, dm, vocab):
             bond_refine=True,
             self_cond=args.self_condition,
             coord_norm=args.coord_norm,
-            adaln=args.adaln
+            adaln=False
         )
         egnn_gen = SemlaGenerator(
             args.d_model,
