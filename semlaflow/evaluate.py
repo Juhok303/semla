@@ -22,6 +22,7 @@ DEFAULT_BUCKET_COST_SCALE = "linear"
 DEFAULT_INTEGRATION_STEPS = 100
 DEFAULT_CAT_SAMPLING_NOISE_LEVEL = 1
 DEFAULT_ODE_SAMPLING_STRATEGY = "log"
+DEFAULT_ADALN = False
 
 
 def load_model(args, vocab):
@@ -39,6 +40,7 @@ def load_model(args, vocab):
         hparams["architecture"] = "semla"
 
     if hparams["architecture"] == "semla":
+        print("***adaln:", hparams["adaln"])
         dynamics = EquiInvDynamics(
             hparams["d_model"],
             hparams["d_message"],
@@ -49,6 +51,7 @@ def load_model(args, vocab):
             d_edge=hparams["d_edge"],
             self_cond=hparams["self_cond"],
             coord_norm=hparams["coord_norm"],
+            adaln=hparams["adaln"],
         )
         egnn_gen = SemlaGenerator(
             hparams["d_model"],
@@ -270,6 +273,8 @@ if __name__ == "__main__":
 
     # Allow overridding for EGNN arch since some models were not saved with a value for n_layers
     parser.add_argument("--n_layers", type=int, default=None)
+
+    parser.add_argument("--adaln", type=bool, default=DEFAULT_ADALN)
 
     args = parser.parse_args()
     main(args)
